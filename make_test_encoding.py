@@ -42,7 +42,7 @@ def main():
     with torch.no_grad():
         pred = text_encoder(tokens).last_hidden_state.detach().cpu()
 
-    os.mkdir(SAVE_DIR, exist_ok=True)
+    os.makedirs(SAVE_DIR, exist_ok=True)
     save_path = os.path.join(SAVE_DIR, f"{TASK_NAME}.pt")
     # We save the embeddings in a dictionary format
     torch.save({
