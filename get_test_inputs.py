@@ -2,6 +2,7 @@
 # Just meant to test if the model can do inference without raising an exception
 
 import PIL
+import torch
 from typing import List
 
 def get_test_frames() -> List[PIL.Image]:
