@@ -42,3 +42,5 @@ def get_test_proprio(): # What type is expected here?!?!
         # Right gripper (1 value, index 13)
         3.0,      # right_gripper_open - gripper state (0=closed, ~4.79=fully open)
     ], dtype=torch.float32)
+
+    return proprio
