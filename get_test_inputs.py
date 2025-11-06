@@ -7,14 +7,14 @@ from typing import List
 
 def get_test_frames() -> List[PIL.Image]:
     # Load and immediately evaluate the first image
-    img1 = PIL.Image.open('random_image_1.png')
+    img1 = PIL.Image.open('random_image_1.png').convert('RGB')
     img1.load()  # Force immediate evaluation
 
     # Load and immediately evaluate the second image
-    img2 = PIL.Image.open('random_image_2.png')
+    img2 = PIL.Image.open('random_image_2.png').convert('RGB')
     img2.load()  # Force immediate evaluation
 
-    return [img1,img2]
+    return [img1, img1, img1, img2, img2, img2]
 
 def get_test_proprio(): # What type is expected here?!?!
     # Create an example proprio tensor with realistic joint angles
