@@ -14,6 +14,8 @@ def get_test_frames() -> List[PIL.Image]:
     img2 = PIL.Image.open('random_image_2.png')
     img2.load()  # Force immediate evaluation
 
+    return [img1,img2]
+
 def get_test_proprio(): # What type is expected here?!?!
     # Create an example proprio tensor with realistic joint angles
     # Units are typically in radians for revolute joints
