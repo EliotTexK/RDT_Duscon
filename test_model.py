@@ -1,7 +1,5 @@
 from scripts.agilex_model import create_model
 import torch
-import PIL
-from typing import List
 
 from get_test_inputs import get_test_frames, get_test_proprio
 
@@ -35,3 +33,5 @@ actions = model.step(
     images=get_test_frames(),
     text_embeds=text_embedding
 )
+
+print(actions)

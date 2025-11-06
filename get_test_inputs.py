@@ -1,6 +1,9 @@
 # Not meant to test if inference gives useful outputs
 # Just meant to test if the model can do inference without raising an exception
 
+import PIL
+from typing import List
+
 def get_test_frames() -> List[PIL.Image]:
     # Load and immediately evaluate the first image
     img1 = Image.open('random_image_1.png')
