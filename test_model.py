@@ -10,6 +10,11 @@ config = {
     'state_dim': 14,      # Dimension of the robot's state
     'chunk_size': 64,     # Number of actions to predict in one step
     'camera_names': CAMERA_NAMES,
+    "dataset": {
+        "tokenizer_max_length": 77,
+        "auto_adjust_image_brightness": False,
+        "image_aspect_ratio": "pad"
+    }
 }
 pretrained_vision_encoder_name_or_path = "google/siglip-so400m-patch14-384"
 # Create the model with the specified configuration
