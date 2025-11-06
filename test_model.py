@@ -3,12 +3,7 @@ import torch
 import PIL
 from typing import List
 
-def load_last_2_frames() -> List[PIL.Image]:
-    return [PIL.Image(), PIL.Image()]
-
-def get_proprioception(): # What type is expected here?!?!
-    return
-
+from get_test_inputs import get_test_frames, get_test_proprio
 
 # Names of cameras used for visual input
 CAMERA_NAMES = ['cam_high', 'cam_right_wrist', 'cam_left_wrist']
@@ -33,12 +28,10 @@ model = create_model(
 # Refer to scripts/encode_lang.py for how to encode the language instruction
 lang_embeddings_path = 'embeddings/BasicMoveWhiteboardMarker.pt'
 text_embedding = torch.load(lang_embeddings_path)['embeddings']
-images: List(PIL.Image) = load_last_2_frames()
-proprio = get_proprioception()
 
 # Perform inference to predict the next `chunk_size` actions
-actions = policy.step(
-    proprio=proprio,
-    images=images,
+actions = model.step(
+    proprio=get_test_proprio(),
+    images=get_test_frames(),
     text_embeds=text_embedding
 )
