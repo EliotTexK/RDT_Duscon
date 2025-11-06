@@ -10,13 +10,19 @@ config = {
     'state_dim': 14,      # Dimension of the robot's state
     'chunk_size': 64,     # Number of actions to predict in one step
     'camera_names': CAMERA_NAMES,
-    "dataset": {
-        "tokenizer_max_length": 77,
-        "auto_adjust_image_brightness": False,
-        "image_aspect_ratio": "pad"
+    'dataset': {
+        'tokenizer_max_length': 77,
+        'auto_adjust_image_brightness': False,
+        'image_aspect_ratio': 'pad'
+    },
+    'model': {
+        # Token dimensions for different modalities
+        'lang_token_dim': 4096,  # T5-v1.1-XXL hidden size
+        'img_token_dim': 1152,   # SigLIP-SO400M-patch14-384 hidden size
+        'state_token_dim': 128,  # Unified state vector dimension
     }
 }
-pretrained_vision_encoder_name_or_path = "google/siglip-so400m-patch14-384"
+pretrained_vision_encoder_name_or_path = 'google/siglip-so400m-patch14-384'
 # Create the model with the specified configuration
 model = create_model(
     args=config,
